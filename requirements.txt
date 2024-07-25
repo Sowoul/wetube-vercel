@@ -1,4 +1,4 @@
 pytubefix
 flask
-flask_caching
-aiocache
+uuid
+os
