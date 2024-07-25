@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We-Tube</title>
+    <style>
+      
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .nav-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin: auto;
+            left: 0;
+            right: 0;
+            background: #6200ee;
+            transition: width 0.5s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .container h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #333;
+            border-radius: 30px;
+            padding: 10px;
+            background-color: #2a2a2a;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box:hover {
+            background-color: #333;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: none;
+            color: #fff;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 30px;
+        }
+
+        .search-box .search-icon, .search-box .go-icon {
+            color: #fff;
+            padding: 0 10px;
+        }
+
+        .search-box .go-icon {
+            cursor: pointer;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #6200ee;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3700b3;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#search").on("keydown", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    search();
+                }
+            });
+
+            $(".go-icon").click(function () {
+                search();
+            });
+        });
+
+        function search() {
+            var searchTerm = document.getElementById("search").value;
+            var redirectURL = "https://we-tube.onrender.com/?link=" + encodeURIComponent(searchTerm);
+            window.location.href = redirectURL;
+        }
+    </script>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="https://github.com/Sowoul/we-tube">Source Code</a>
+        <a href="https://mathoholicoja.wixsite.com/ojaswa-sharma">About</a>
+        <a href="https://www.fiverr.com/sowoul?source=gig_page&gigs=slug%3Acreate-a-minecraft-pvp-texture-pack-for-you%2Cpckg_id%3A1">Gigs</a>
+        <a href="https://mathoholicoja.wixsite.com/ojaswa-sharma/blank-3">Contact</a>
+    </div>
+    <div class="container">
+        <h1>We-Tube</h1>
+        <div class="search-box">
+            <div class="search-icon"><i class="fa fa-search"></i></div>
+            <input type="text" placeholder="Link..." id="search" autocomplete="off">
+            <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+        </div>
+        <button class="btn" onClick="search()">Download</button>
+    </div>
+</body>
+</html>
