@@ -131,9 +131,12 @@
                 search();
             });
         });
-
+        function clearSearchInput() {
+                $('#search').val('');
+            }
         function search() {
             var searchTerm = document.getElementById("search").value;
+            clearSearchInput();
             var redirectURL = "https://we-tube.onrender.com/?link=" + encodeURIComponent(searchTerm);
             window.location.href = redirectURL;
         }
