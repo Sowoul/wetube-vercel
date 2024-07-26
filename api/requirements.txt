@@ -1,4 +1,2 @@
-pytube
+pytubefix
 flask
-uuid
-gunicorn
